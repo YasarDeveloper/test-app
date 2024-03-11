@@ -32,6 +32,13 @@ export class StudentController {
     students.forEach(student => {
       student.createdUsername = userIdToUsername.get(student.createduser);
       student.updatedUsername = userIdToUsername.get(student.updateduser);
+      if (student.createdUsername == null) {
+        student.createdUsername = "Guest";
+      }
+
+      if (student.updatedUsername == null) {
+        student.updatedUsername = "Guest";
+      }
     });
 
     return students;
